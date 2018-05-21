@@ -114,7 +114,21 @@ public class Editor extends TextArea
 	 */
 	public void registerEvents(Stage stage, Scene scene)
 	{
-		this.fullscreenEvent(stage, scene); //DONE
+		this.saveEvent(stage, scene);
+		this.fullscreenEvent(stage, scene);
+	}
+	
+	private void saveEvent(Stage stage, Scene scene)
+	{
+		scene.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
+			if(event.getCode() == KeyCode.S && event.isShortcutDown())
+			{
+				if(this.file != null)
+				{
+					EditorUtil.save(stage, scene, this);
+				}
+			}
+		});
 	}
 	
 	/**
