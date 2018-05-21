@@ -1,0 +1,84 @@
+/* ============== STYLE PROPERTIES ==================== */
+/* The below properties specific setting for this       */
+/* themes that either CAN'T be set with CSS or HAVE     */
+/* to be handled with real code. The order of these     */
+/*                                                      */
+/*                                                      */
+/* Property Documentation:                              */
+/*   FONT_SIZE - The size of the font (Ex: 16)          */
+/*   EDITOR_WIDTH - The width of the editor (Ex: 800)   */
+/* ==================================================== */
+FONT_SIZE=16
+EDITOR_WIDTH=800
+
+/* ============== STYLE PROPERTIES ====================== */
+/* Here are the actual CSS styles. For custom fonts to    */
+/* work they must be installed system wide. This means    */
+/* that fonts should be bundled with themes when sharing  */
+/* them so other users can install the fonts.             */
+/* ====================================================== */
+@font-face 
+{
+	-fx-font-family: monospace;
+}
+
+.border-pane
+{
+	-fx-background-color: #232323;
+}
+
+.stack-pane
+{
+	-fx-background-color: #232323;
+}
+
+.editor 
+{
+	-fx-font-family: monospace;
+	-fx-font-weight: normal;
+	-fx-text-fill: #f9f9f9;
+    -fx-background-insets: 0;
+    -fx-background-color: #232323;
+}
+
+.editor .content 
+{
+    -fx-background-color: #232323;
+    -fx-highlight-fill: #676767;
+    -fx-padding: 20px 20px 20px 20px;
+    -fx-background-radius: 0 ;
+}
+
+.editor:focused 
+{
+    -fx-highlight-fill: #676767;
+}
+
+.editor:focused .content 
+{
+    -fx-background-color: #232323;
+}
+
+.editor .scroll-bar:vertical:disabled 
+{
+	-fx-opacity: 0;
+}
+
+.command-line-box
+{
+	-fx-border-style: none none solid none;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: #f9f9f9;
+}
+
+.command-label
+{
+	-fx-text-fill: #f9f9f9;
+}
+
+.command-input
+{
+    -fx-background-color: #232323;
+    -fx-text-fill: #f9f9f9;
+}
+
