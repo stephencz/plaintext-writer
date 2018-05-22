@@ -1,0 +1,95 @@
+/* ============== STYLE PROPERTIES ==================== */
+/* The below properties specific setting for this       */
+/* themes that either CAN'T be set with CSS or HAVE     */
+/* to be handled with real code. The order of these     */
+/*                                                      */
+/*                                                      */
+/* Property Documentation:                              */
+/*   FONT_SIZE - The size of the font (Ex: 16)          */
+/*   EDITOR_WIDTH - The width of the editor (Ex: 800)   */
+/* ==================================================== */
+FONT_SIZE=16
+EDITOR_WIDTH=800
+
+/* ============== STYLE PROPERTIES ====================== */
+/* Here are the actual CSS styles. For custom fonts to    */
+/* work they must be installed system wide. This means    */
+/* that fonts should be bundled with themes when sharing  */
+/* them so other users can install the fonts.             */
+/* ====================================================== */
+@font-face 
+{
+	-fx-font-family: monospace;
+}
+
+.border-pane
+{
+	-fx-background-color: #EAEAE5;
+}
+
+.stack-pane
+{
+	-fx-background-color: #EAEAE5;
+}
+
+.editor 
+{
+	-fx-font-family: monospace;
+	-fx-font-weight: normal;
+	-fx-text-fill: #676767;
+    -fx-background-insets: 0;
+    -fx-background-color: #EAEAE5;
+}
+
+.editor .content 
+{
+    -fx-background-color: #EAEAE5;
+    -fx-highlight-fill: #00FF00;
+    -fx-padding: 40px 20px 40px 20px;
+    -fx-background-radius: 0 ;
+}
+
+.editor:focused 
+{
+    -fx-highlight-fill: #00FF00;
+}
+
+.editor:focused .content 
+{
+    -fx-background-color: #EAEAE5;
+}
+
+.editor .scroll-bar:vertical:disabled 
+{
+	-fx-opacity: 0;
+}
+
+.command-line-box
+{
+	-fx-background-color: #E1DDCF;
+	-fx-border-style: none none solid none;
+    -fx-border-width: 0 0 2 0;
+    -fx-border-color: #9a9a9a;
+    
+    -fx-padding: 10px 10px 10px 10px;
+    
+}
+
+.command-label
+{
+	-fx-text-fill: #676767;
+}
+
+.command-input
+{
+    -fx-background-color: #EAEAE5;
+    -fx-text-fill: #676767;
+}
+
+.feature-bar
+{
+	-fx-background-color: #EAEAE5;
+	-fx-border-style: solid none none none;
+    -fx-border-width: 1 0 0 0;
+    -fx-border-color: #676767;
+}
