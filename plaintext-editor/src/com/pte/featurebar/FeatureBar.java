@@ -14,7 +14,6 @@ public class FeatureBar extends HBox
 	public FeatureBar()
 	{
 		this.initFeatureBar();
-		this.setVisible(false);
 	}
 	
 	public void registerEvents(Stage stage, Scene scene)

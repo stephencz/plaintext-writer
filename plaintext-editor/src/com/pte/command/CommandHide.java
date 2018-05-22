@@ -3,6 +3,7 @@ package com.pte.command;
 import java.util.ArrayList;
 
 import com.pte.editor.Editor;
+import com.pte.featurebar.FeatureBar;
 
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -10,10 +11,11 @@ import javafx.stage.Stage;
 public class CommandHide extends Command
 {
 
-	public CommandHide(Editor editor, CommandLine commandLine)
+	public CommandHide(CommandLine commandLine, Editor editor, FeatureBar featureBar)
 	{
-		super(editor, commandLine, "hide");
+		super("hide", commandLine, editor, featureBar);
 	}
+
 
 	@Override
 	public boolean event(Stage stage, Scene scene, ArrayList<String> tokens)

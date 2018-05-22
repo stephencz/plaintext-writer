@@ -3,6 +3,7 @@ package com.pte.command;
 import java.util.ArrayList;
 
 import com.pte.editor.Editor;
+import com.pte.featurebar.FeatureBar;
 
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -10,9 +11,9 @@ import javafx.stage.Stage;
 public class CommandSetFontSize extends Command
 {
 
-	public CommandSetFontSize(Editor editor, CommandLine commandLine)
+	public CommandSetFontSize(CommandLine commandLine, Editor editor, FeatureBar featureBar)
 	{
-		super(editor, commandLine, "set_fontsize");
+		super("set_fontsize", commandLine, editor, featureBar);
 	}
 
 	@Override

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.pte.editor.Editor;
 import com.pte.editor.EditorUtil;
+import com.pte.featurebar.FeatureBar;
 
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -11,9 +12,9 @@ import javafx.stage.Stage;
 public class CommandNewFile extends Command
 {
 
-	public CommandNewFile(Editor editor, CommandLine commandLine)
+	public CommandNewFile(CommandLine commandLine, Editor editor, FeatureBar featureBar)
 	{
-		super(editor, commandLine, "new");
+		super("new", commandLine, editor, featureBar);
 	}
 
 	@Override

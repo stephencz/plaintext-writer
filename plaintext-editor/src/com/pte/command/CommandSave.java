@@ -3,6 +3,7 @@ package com.pte.command;
 import java.util.ArrayList;
 import com.pte.editor.Editor;
 import com.pte.editor.EditorUtil;
+import com.pte.featurebar.FeatureBar;
 
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -10,9 +11,9 @@ import javafx.stage.Stage;
 public class CommandSave extends Command
 {
 
-	public CommandSave(Editor editor, CommandLine commandLine)
+	public CommandSave(CommandLine commandLine, Editor editor, FeatureBar featureBar)
 	{
-		super(editor, commandLine, "save");
+		super("save", commandLine, editor, featureBar);
 	}
 
 	@Override

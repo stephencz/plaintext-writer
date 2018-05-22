@@ -3,6 +3,7 @@ package com.pte.command;
 import java.util.ArrayList;
 
 import com.pte.editor.Editor;
+import com.pte.featurebar.FeatureBar;
 
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -10,9 +11,9 @@ import javafx.stage.Stage;
 public class CommandSetWidth extends Command
 {
 
-	public CommandSetWidth(Editor editor, CommandLine commandLine)
+	public CommandSetWidth(CommandLine commandLine, Editor editor, FeatureBar featureBar)
 	{
-		super(editor, commandLine, "set_width");
+		super("set_width", commandLine, editor, featureBar);
 	}
 	
 	@Override

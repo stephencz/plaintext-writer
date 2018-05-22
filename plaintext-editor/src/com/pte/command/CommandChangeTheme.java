@@ -3,6 +3,7 @@ package com.pte.command;
 import java.util.ArrayList;
 
 import com.pte.editor.Editor;
+import com.pte.featurebar.FeatureBar;
 import com.pte.util.CSSUtil;
 
 import javafx.scene.Scene;
@@ -10,9 +11,9 @@ import javafx.stage.Stage;
 
 public class CommandChangeTheme extends Command
 {
-	public CommandChangeTheme(Editor editor, CommandLine commandLine)
+	public CommandChangeTheme(CommandLine commandLine, Editor editor, FeatureBar featureBar)
 	{
-		super(editor, commandLine, "theme");
+		super("theme", commandLine, editor, featureBar);
 	}
 
 	@Override

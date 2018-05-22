@@ -55,8 +55,9 @@ public class Driver extends Application
 		stackPane = new StackPane();
 		scene = new Scene(root, INITIAL_STAGE_WIDTH, INITIAL_STAGE_HEIGHT);
 		editor = new Editor(DEFAULT_FONT_SIZE, DEFAULT_EDITOR_WIDTH);
-		commandLine = new CommandLine(editor);
 		featureBar = new FeatureBar();
+		commandLine = new CommandLine(editor, featureBar);
+
 	}
 	
 	@Override

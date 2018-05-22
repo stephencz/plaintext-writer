@@ -3,6 +3,7 @@ package com.pte.command;
 import java.util.ArrayList;
 
 import com.pte.editor.Editor;
+import com.pte.featurebar.FeatureBar;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -26,6 +27,8 @@ public class CommandLine extends HBox
 {
 	/**A reference to the primary editor.*/
 	private Editor editor;
+
+	private FeatureBar featureBar;
 	
 	/**The command line's label.*/
 	private Label commandLabel;
@@ -50,9 +53,10 @@ public class CommandLine extends HBox
 	 * Creates a new CommandLine object.
 	 * @param editor The primary editor.
 	 */
-	public CommandLine(Editor editor)
+	public CommandLine(Editor editor, FeatureBar featureBar)
 	{
 		this.editor = editor;
+		this.featureBar = featureBar;
 		
 		commandLabel = new Label("Enter Command:");
 		commandLine = new TextField();
@@ -60,15 +64,15 @@ public class CommandLine extends HBox
 		parser = new CommandParser(this);
 		manager = new CommandManager(this);
 		
-		saveCommand = new CommandSave(editor, this);
-		saveAsCommand = new CommandSaveAs(editor, this);
-		openFileCommand = new CommandOpenFile(editor, this);
-		newFileCommand = new CommandNewFile(editor, this);
-		setWidthCommand = new CommandSetWidth(editor, this);
-		setFontSizeCommand = new CommandSetFontSize(editor, this);
-		changeThemeCommand = new CommandChangeTheme(editor, this);
-		fullscreenCommand = new CommandFullscreen(editor, this);
-		hideCommand = new CommandHide(editor, this);
+		saveCommand = new CommandSave(this, editor, featureBar);
+		saveAsCommand = new CommandSaveAs(this, editor, featureBar);
+		openFileCommand = new CommandOpenFile(this, editor, featureBar);
+		newFileCommand = new CommandNewFile(this, editor, featureBar);
+		setWidthCommand = new CommandSetWidth(this, editor, featureBar);
+		setFontSizeCommand = new CommandSetFontSize(this, editor, featureBar);
+		changeThemeCommand = new CommandChangeTheme(this, editor, featureBar);
+		fullscreenCommand = new CommandFullscreen(this, editor, featureBar);
+		hideCommand = new CommandHide(this, editor, featureBar);
 		
 		manager.getCommands().add(saveCommand);
 		manager.getCommands().add(saveAsCommand);
@@ -88,6 +92,11 @@ public class CommandLine extends HBox
 	public Editor getEditor()
 	{
 		return this.editor;
+	}
+	
+	public FeatureBar getFeatureBar()
+	{
+		return this.featureBar;
 	}
 	
 	public Label getCommandLabel()

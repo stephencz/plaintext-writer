@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.ArrayList;
 import com.pte.editor.Editor;
 import com.pte.editor.EditorUtil;
+import com.pte.featurebar.FeatureBar;
 
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -11,9 +12,9 @@ import javafx.stage.Stage;
 public class CommandOpenFile extends Command
 {
 
-	public CommandOpenFile(Editor editor, CommandLine commandLine)
+	public CommandOpenFile(CommandLine commandLine, Editor editor, FeatureBar featureBar)
 	{
-		super(editor, commandLine, "open");
+		super("open", commandLine, editor, featureBar);
 	}
 
 	@Override
