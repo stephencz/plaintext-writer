@@ -116,7 +116,7 @@ public class Driver extends Application
 	private void initEditor(Stage stage)
 	{
 		editor.registerEvents(stage, scene);
-		editor.hideVScrollBar();	
+		editor.hideVScrollBar();
 	}
 	
 	private void initCommandLine(Stage stage)

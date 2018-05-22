@@ -33,6 +33,7 @@ public class Editor extends TextArea
 		this.setFontSize(fontSize);
 		this.setEditorWidth(editorWidth);
 		this.setTheme(ConfigUtil.getDefaultTheme());
+		this.setClip(getShape());
 		
 		file = null;
 	}

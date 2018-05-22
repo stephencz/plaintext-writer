@@ -34,7 +34,7 @@ public class CommandUpdate extends Command
 				success = true;
 				break;
 				
-			case "WORDS":
+			case "COUNT":
 				FeatureUtil.updateWords(featureBar, editor);
 				success = true;
 				break;

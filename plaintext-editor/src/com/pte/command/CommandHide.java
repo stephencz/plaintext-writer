@@ -35,8 +35,8 @@ public class CommandHide extends Command
 			success = true;
 			break;
 			
-		case "WORDS":
-			this.featureBar.getManager().getFeature("WORDS").setVisible(false);
+		case "COUNT":
+			this.featureBar.getManager().getFeature("COUNT").setVisible(false);
 			success = true;
 			break;
 			

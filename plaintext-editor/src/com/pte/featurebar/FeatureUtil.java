@@ -27,7 +27,7 @@ public class FeatureUtil
 	
 	public static void updateWords(FeatureBar featureBar, Editor editor)
 	{
-		Feature feature = featureBar.getManager().getFeature("WORDS");
+		Feature feature = featureBar.getManager().getFeature("COUNT");
 		Pattern pattern = Pattern.compile("(\\b[A-z])");
 		
 		int wordCount = 0;

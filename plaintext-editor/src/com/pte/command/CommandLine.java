@@ -140,6 +140,20 @@ public class CommandLine extends HBox
 	private void hideCommandLineEvent(Stage stage, Scene scene)
 	{
 		scene.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
+			if(event.getCode() == KeyCode.G && event.isShortcutDown() && event.isShiftDown())
+			{	
+				if(this.isVisible())
+				{
+					this.setVisible(false);
+				}
+				else
+				{
+					this.setVisible(true);
+					this.commandLine.requestFocus();
+					this.commandLine.selectAll();
+				}
+			}
+			
 			if(event.getCode() == KeyCode.H && event.isShortcutDown() && event.isShiftDown())
 			{	
 				if(this.isVisible())

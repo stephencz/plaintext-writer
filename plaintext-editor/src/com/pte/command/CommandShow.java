@@ -34,7 +34,7 @@ public class CommandShow extends Command
 			break;
 			
 		case "WORDS":
-			this.featureBar.getManager().getFeature("WORDS").setVisible(true);
+			this.featureBar.getManager().getFeature("COUNT").setVisible(true);
 			success = true;
 			break;
 			

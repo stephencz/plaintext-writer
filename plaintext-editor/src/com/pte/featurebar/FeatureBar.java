@@ -27,7 +27,7 @@ public class FeatureBar extends HBox
 		
 		featureManager = new FeatureManager(this);
 		
-		wordCount = new Feature("WORDS", "Words: 0");
+		wordCount = new Feature("count", "Words: 0");
 		
 		featureManager.getFeatures().add(wordCount);
 		
@@ -54,6 +54,18 @@ public class FeatureBar extends HBox
 	{
 		scene.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
 			if(event.getCode() == KeyCode.F && event.isShortcutDown() && event.isShiftDown())
+			{	
+				if(this.isVisible())
+				{
+					this.setVisible(false);
+				}
+				else
+				{
+					this.setVisible(true);
+				}
+			}
+			
+			if(event.getCode() == KeyCode.H && event.isShortcutDown() && event.isShiftDown())
 			{	
 				if(this.isVisible())
 				{
