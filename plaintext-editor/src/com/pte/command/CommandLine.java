@@ -43,13 +43,19 @@ public class CommandLine extends HBox
 	private CommandSaveAs saveAsCommand;
 	private CommandOpenFile openFileCommand;
 	private CommandNewFile newFileCommand;
+	
 	private CommandSetWidth setWidthCommand;
 	private CommandSetFontSize setFontSizeCommand;
 	private CommandChangeTheme changeThemeCommand;
 	private CommandFullscreen fullscreenCommand;
+	
 	private CommandHide hideCommand;
 	private CommandShow showCommand;
 	private CommandUpdate updateCommand;
+	private CommandTop topCommand;
+	
+	private CommandBottom bottomCommand;
+	private CommandJump jumpCommand;
 	
 	/**
 	 * Creates a new CommandLine object.
@@ -70,25 +76,37 @@ public class CommandLine extends HBox
 		saveAsCommand = new CommandSaveAs(this, editor, featureBar);
 		openFileCommand = new CommandOpenFile(this, editor, featureBar);
 		newFileCommand = new CommandNewFile(this, editor, featureBar);
+		
 		setWidthCommand = new CommandSetWidth(this, editor, featureBar);
 		setFontSizeCommand = new CommandSetFontSize(this, editor, featureBar);
 		changeThemeCommand = new CommandChangeTheme(this, editor, featureBar);
 		fullscreenCommand = new CommandFullscreen(this, editor, featureBar);
+		
 		hideCommand = new CommandHide(this, editor, featureBar);
 		showCommand = new CommandShow(this, editor, featureBar);
 		updateCommand = new CommandUpdate(this, editor, featureBar);
+		topCommand = new CommandTop(this, editor, featureBar);
+		
+		bottomCommand = new CommandBottom(this, editor, featureBar);
+		jumpCommand = new CommandJump(this, editor, featureBar);
 		
 		manager.getCommands().add(saveCommand);
 		manager.getCommands().add(saveAsCommand);
 		manager.getCommands().add(openFileCommand);
 		manager.getCommands().add(newFileCommand);
+		
 		manager.getCommands().add(setWidthCommand);
 		manager.getCommands().add(setFontSizeCommand);
 		manager.getCommands().add(changeThemeCommand);
 		manager.getCommands().add(fullscreenCommand);
+		
 		manager.getCommands().add(hideCommand);
 		manager.getCommands().add(showCommand);
 		manager.getCommands().add(updateCommand);
+		manager.getCommands().add(topCommand);
+		
+		manager.getCommands().add(bottomCommand);
+		//manager.getCommands().add(jumpCommand); MUST BE FIXED
 		
 		initCommandLine();
 		initCommandLabel();

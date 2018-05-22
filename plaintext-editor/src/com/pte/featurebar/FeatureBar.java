@@ -76,6 +76,11 @@ public class FeatureBar extends HBox
 					this.setVisible(true);
 				}
 			}
+			
+			if(event.getCode() == KeyCode.U && event.isShortcutDown() && event.isShiftDown())
+			{	
+				FeatureUtil.updateWords(this, editor);
+			}
 		});
 	}
 	
