@@ -21,3 +21,8 @@ To keep things clean and simple plaintext-writer uses a command line in favor of
 | `set_width <width>` | Sets the view width of the editor | `set_width 1200`|
 | `set_fontsize <size>` | Sets the font size of the editor | `set_fontsize 24`|
 
+### Screenshots
+![Light theme](/screenshots/light.png?raw=true)
+![Dark theme](/screenshots/dark.png?raw=true)
+![Hacker theme](/screenshots/hacker.png?raw=true)
+![Relaxed theme](/screenshots/relaxed.png?raw=true)
