@@ -19,10 +19,26 @@ public class CommandHide extends Command
 	public boolean event(Stage stage, Scene scene, ArrayList<String> tokens)
 	{
 		boolean success = false;
-		
-		if(tokens.get(1).trim().toUpperCase() == "COMMAND")
+				
+		switch(tokens.get(1).trim().toUpperCase())
 		{
+		case "COMMAND": 
+			editor.requestFocus();
+			this.commandLine.setVisible(false);
+			success = true;
+			break;
 			
+		case "FEATURE":
+			//HAVE TO FINISH IMPLEMENTING FEATURE BAR
+			break;
+			
+		case "ALL":
+			editor.requestFocus();
+			this.commandLine.setVisible(false);
+			break;
+			
+		default: 
+			break;
 		}
 		
 		return success;

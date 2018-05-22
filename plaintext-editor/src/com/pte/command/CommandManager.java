@@ -45,50 +45,63 @@ public class CommandManager
 	{	
 		boolean found = false;
 		
-		if(!this.isResolving())
+		Command target = null;
+		
+		try 
 		{
-			this.setResolving(true);
-			for(Command command : commands)
+			if(!this.isResolving())
 			{
-				if(command.getIdentifier().toUpperCase().equals(tokens.get(0).toUpperCase().trim()))
+				this.setResolving(true);
+				for(Command command : commands)
 				{
-					found = true;
-					if(command.event(stage, scene, tokens))
+					if(command.getIdentifier().toUpperCase().equals(tokens.get(0).toUpperCase().trim()))
 					{
-						if(command.getSuccessMessage(tokens) != null)
+						found = true;
+						target = command;
+						if(command.event(stage, scene, tokens))
 						{
-							commandLine.getCommandLine().setText(command.getSuccessMessage(tokens));
-							commandLine.getCommandLine().selectAll();
+							if(command.getSuccessMessage(tokens) != null)
+							{
+								commandLine.getCommandLine().setText(command.getSuccessMessage(tokens));
+								commandLine.getCommandLine().selectAll();
+							}
+							else
+							{
+								commandLine.getCommandLine().setText("");
+							}
 						}
 						else
 						{
-							commandLine.getCommandLine().setText("");
-						}
-					}
-					else
-					{
-						if(command.getFailMessage(tokens) != null)
-						{
-							commandLine.getCommandLine().setText(command.getFailMessage(tokens));
-							commandLine.getCommandLine().selectAll();
-						}
-						else
-						{
-							commandLine.getCommandLine().setText("");
+							if(command.getFailMessage(tokens) != null)
+							{
+								commandLine.getCommandLine().setText(command.getFailMessage(tokens));
+								commandLine.getCommandLine().selectAll();
+							}
+							else
+							{
+								commandLine.getCommandLine().setText("");
+							}
 						}
 					}
 				}
+				
+				if(!found)
+				{
+					commandLine.getCommandLabel().setText("Enter Command: ");
+					commandLine.getCommandLine().setText("INVALID COMMAND");
+					commandLine.getCommandLine().selectAll();
+				}
 			}
-			
-			if(!found)
-			{
-				commandLine.getCommandLabel().setText("Enter Command: ");
-				commandLine.getCommandLine().setText("INVALID COMMAND");
-				commandLine.getCommandLine().selectAll();
-			}
-			
-			this.setResolving(false);
 		}
+		catch(Exception e)
+		{
+			if(target != null)
+			{
+				target.getFailMessage(tokens);
+			}
+		}
+			
+		this.setResolving(false);
 	}
 
 

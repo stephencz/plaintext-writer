@@ -44,6 +44,7 @@ public class CommandLine extends HBox
 	private CommandSetFontSize setFontSizeCommand;
 	private CommandChangeTheme changeThemeCommand;
 	private CommandFullscreen fullscreenCommand;
+	private CommandHide hideCommand;
 
 	/**
 	 * Creates a new CommandLine object.
@@ -67,6 +68,7 @@ public class CommandLine extends HBox
 		setFontSizeCommand = new CommandSetFontSize(editor, this);
 		changeThemeCommand = new CommandChangeTheme(editor, this);
 		fullscreenCommand = new CommandFullscreen(editor, this);
+		hideCommand = new CommandHide(editor, this);
 		
 		manager.getCommands().add(saveCommand);
 		manager.getCommands().add(saveAsCommand);
@@ -76,6 +78,7 @@ public class CommandLine extends HBox
 		manager.getCommands().add(setFontSizeCommand);
 		manager.getCommands().add(changeThemeCommand);
 		manager.getCommands().add(fullscreenCommand);
+		manager.getCommands().add(hideCommand);
 		
 		initCommandLine();
 		initCommandLabel();
