@@ -48,7 +48,9 @@ public class CommandLine extends HBox
 	private CommandChangeTheme changeThemeCommand;
 	private CommandFullscreen fullscreenCommand;
 	private CommandHide hideCommand;
-
+	private CommandShow showCommand;
+	private CommandUpdate updateCommand;
+	
 	/**
 	 * Creates a new CommandLine object.
 	 * @param editor The primary editor.
@@ -73,6 +75,8 @@ public class CommandLine extends HBox
 		changeThemeCommand = new CommandChangeTheme(this, editor, featureBar);
 		fullscreenCommand = new CommandFullscreen(this, editor, featureBar);
 		hideCommand = new CommandHide(this, editor, featureBar);
+		showCommand = new CommandShow(this, editor, featureBar);
+		updateCommand = new CommandUpdate(this, editor, featureBar);
 		
 		manager.getCommands().add(saveCommand);
 		manager.getCommands().add(saveAsCommand);
@@ -83,6 +87,8 @@ public class CommandLine extends HBox
 		manager.getCommands().add(changeThemeCommand);
 		manager.getCommands().add(fullscreenCommand);
 		manager.getCommands().add(hideCommand);
+		manager.getCommands().add(showCommand);
+		manager.getCommands().add(updateCommand);
 		
 		initCommandLine();
 		initCommandLabel();

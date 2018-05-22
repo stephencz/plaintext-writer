@@ -1,8 +1,12 @@
 package com.pte.featurebar;
 
+import com.pte.editor.Editor;
+
+import javafx.event.Event;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
@@ -11,9 +15,37 @@ import javafx.stage.Stage;
 public class FeatureBar extends HBox
 {
 	
-	public FeatureBar()
+	private Editor editor;
+	
+	private FeatureManager featureManager;
+	
+	private Feature paragraphCount;
+	private Feature wordCount;
+	
+	public FeatureBar(Editor editor)
 	{
+		this.editor = editor;
+		
+		featureManager = new FeatureManager(this);
+		
+		paragraphCount = new Feature("PARAGRAPHS", "Paragraphs: 0");
+		wordCount = new Feature("WORDS", "Words: 0");
+		
+		featureManager.getFeatures().add(paragraphCount);
+		featureManager.getFeatures().add(wordCount);
+		
+		this.initLabels();
 		this.initFeatureBar();
+	}
+	
+	public Editor getEditor()
+	{
+		return this.editor;
+	}
+	
+	public FeatureManager getManager()
+	{
+		return this.featureManager;
 	}
 	
 	public void registerEvents(Stage stage, Scene scene)
@@ -38,6 +70,13 @@ public class FeatureBar extends HBox
 		});
 	}
 	
+	private void initLabels()
+	{
+		this.getChildren().add(paragraphCount);
+		this.getChildren().add(wordCount);
+
+	}
+	
 	private void initFeatureBar()
 	{
 		this.setSpacing(6);
@@ -45,6 +84,8 @@ public class FeatureBar extends HBox
 		//HBox.setHgrow(commandLine, Priority.ALWAYS);
 		this.setAlignment(Pos.CENTER_LEFT);
 		this.getStyleClass().add("feature-bar");
+		this.paragraphCount.getStyleClass().add("feature-bar-label");
+		this.wordCount.getStyleClass().add("feature-bar-label");
+
 	}
-	
 }

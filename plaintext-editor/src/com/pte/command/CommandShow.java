@@ -8,47 +8,45 @@ import com.pte.featurebar.FeatureBar;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class CommandHide extends Command
+public class CommandShow extends Command
 {
 
-	public CommandHide(CommandLine commandLine, Editor editor, FeatureBar featureBar)
+	public CommandShow(CommandLine commandLine, Editor editor, FeatureBar featureBar)
 	{
-		super("hide", commandLine, editor, featureBar);
+		super("show", commandLine, editor, featureBar);
 	}
-
 
 	@Override
 	public boolean event(Stage stage, Scene scene, ArrayList<String> tokens)
 	{
 		boolean success = false;
-				
+		
 		switch(tokens.get(1).trim().toUpperCase())
 		{
 		case "COMMAND": 
-			this.editor.requestFocus();
-			this.commandLine.setVisible(false);
+			this.commandLine.setVisible(true);
 			success = true;
 			break;
 			
 		case "FEATURE":
-			this.featurebar.setVisible(false);
+			this.featurebar.setVisible(true);
 			success = true;
 			break;
 			
 		case "PARAGRAPHS":
-			this.featurebar.getManager().getFeature("PARAGRAPHS").setVisible(false);
+			this.featurebar.getManager().getFeature("PARAGRAPHS").setVisible(true);
 			success = true;
 			break;
 			
 		case "WORDS":
-			this.featurebar.getManager().getFeature("WORDS").setVisible(false);
+			this.featurebar.getManager().getFeature("WORDS").setVisible(true);
 			success = true;
 			break;
 			
 		case "ALL":
-			this.editor.requestFocus();
-			this.commandLine.setVisible(false);
-			this.featurebar.setVisible(false);
+			this.commandLine.setVisible(true);
+			this.featurebar.setVisible(true);
+			
 			success = true;
 			break;
 			
@@ -62,15 +60,13 @@ public class CommandHide extends Command
 	@Override
 	public String getSuccessMessage(ArrayList<String> tokens)
 	{
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public String getFailMessage(ArrayList<String> tokens)
 	{
-		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
 }
