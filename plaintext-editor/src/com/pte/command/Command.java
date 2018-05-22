@@ -34,7 +34,7 @@ public abstract class Command
 	protected final Editor editor;
 	
 	/**The FeatureBar the command can manipulate.*/
-	protected final FeatureBar featurebar;
+	protected final FeatureBar featureBar;
 
 	/**
 	 * Creates a new Command Object.
@@ -48,7 +48,7 @@ public abstract class Command
 		this.identifier = identifier;
 		this.commandLine = commandLine;
 		this.editor = editor;
-		this.featurebar = featureBar;
+		this.featureBar = featureBar;
 		
 	}
 
@@ -93,5 +93,10 @@ public abstract class Command
 	public Editor getEditor()
 	{
 		return editor;
+	}
+	
+	public FeatureBar getFeatureBar()
+	{
+		return featureBar;
 	}
 }

@@ -29,23 +29,18 @@ public class CommandShow extends Command
 			break;
 			
 		case "FEATURE":
-			this.featurebar.setVisible(true);
-			success = true;
-			break;
-			
-		case "PARAGRAPHS":
-			this.featurebar.getManager().getFeature("PARAGRAPHS").setVisible(true);
+			this.featureBar.setVisible(true);
 			success = true;
 			break;
 			
 		case "WORDS":
-			this.featurebar.getManager().getFeature("WORDS").setVisible(true);
+			this.featureBar.getManager().getFeature("WORDS").setVisible(true);
 			success = true;
 			break;
 			
 		case "ALL":
 			this.commandLine.setVisible(true);
-			this.featurebar.setVisible(true);
+			this.featureBar.setVisible(true);
 			
 			success = true;
 			break;

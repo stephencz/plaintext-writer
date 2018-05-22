@@ -7,6 +7,7 @@ import java.util.regex.Pattern;
 import com.pte.editor.Editor;
 import com.pte.featurebar.Feature;
 import com.pte.featurebar.FeatureBar;
+import com.pte.featurebar.FeatureUtil;
 
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -29,34 +30,27 @@ public class CommandUpdate extends Command
 			switch(tokens.get(1).trim().toUpperCase())
 			{	
 			case "FEATURE":
-				this.updateAllFeatures();
-				success = true;
-				break;
-				
-			case "PARAGRAPHS":
-				this.updateParagraphs();
+				FeatureUtil.updateWords(featureBar, editor);
 				success = true;
 				break;
 				
 			case "WORDS":
-				this.updateWords();
+				FeatureUtil.updateWords(featureBar, editor);
 				success = true;
 				break;
 				
 			case "ALL":
-				this.updateAll();
+				FeatureUtil.updateWords(featureBar, editor);
 				success = true;
 				break;
 				
-			default: 
-				this.updateAll();
-				success = true;
+			default:
 				break;
 			}
 		}
 		else if(tokens.size() <= 1)
 		{
-			this.updateAll();
+			FeatureUtil.updateWords(featureBar, editor);
 		}
 		
 		return success;
@@ -72,53 +66,5 @@ public class CommandUpdate extends Command
 	public String getFailMessage(ArrayList<String> tokens)
 	{
 		return null;
-	}
-	
-	private void updateParagraphs()
-	{
-		Feature feature = this.featurebar.getManager().getFeature("PARAGRAPHS");
-		
-		int paragraphCount = 0;
-		
-		for(CharSequence paragraph : this.editor.getParagraphs())
-		{
-			if(!paragraph.toString().trim().isEmpty())
-			{
-				paragraphCount++;
-			}
-		}
-		
-		feature.setText("Paragraphs: " + paragraphCount);
-	}
-	
-	private void updateWords()
-	{
-		Feature feature = this.featurebar.getManager().getFeature("WORDS");
-		Pattern pattern = Pattern.compile("(\\b[A-z])");
-		
-		int wordCount = 0;
-		
-		for(CharSequence paragraph : this.editor.getParagraphs())
-		{
-			Matcher matcher = pattern.matcher(paragraph);
-			while(matcher.find())
-			{
-				wordCount++;
-			}
-		}
-		
-		feature.setText("Words: " + wordCount);
-		
-	}
-	
-	private void updateAllFeatures()
-	{
-		this.updateParagraphs();
-		this.updateWords();
-	}
-	
-	private void updateAll()
-	{
-		this.updateAllFeatures();
 	}
 }

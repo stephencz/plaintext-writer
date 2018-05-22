@@ -31,24 +31,19 @@ public class CommandHide extends Command
 			break;
 			
 		case "FEATURE":
-			this.featurebar.setVisible(false);
-			success = true;
-			break;
-			
-		case "PARAGRAPHS":
-			this.featurebar.getManager().getFeature("PARAGRAPHS").setVisible(false);
+			this.featureBar.setVisible(false);
 			success = true;
 			break;
 			
 		case "WORDS":
-			this.featurebar.getManager().getFeature("WORDS").setVisible(false);
+			this.featureBar.getManager().getFeature("WORDS").setVisible(false);
 			success = true;
 			break;
 			
 		case "ALL":
 			this.editor.requestFocus();
 			this.commandLine.setVisible(false);
-			this.featurebar.setVisible(false);
+			this.featureBar.setVisible(false);
 			success = true;
 			break;
 			
