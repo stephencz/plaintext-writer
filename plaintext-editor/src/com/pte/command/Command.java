@@ -9,11 +9,15 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
- * The Command class represents a command that performs some function.
- * Every command has an identifier which acts as its trigger. For example,
- * a command which opens a file might have an identifier of 'open'. Each
- * Command object also has a reference to a CommandLine, Editor, and FeatureBar
- * so commands can actually be useful.
+ * <p>The Command class represents a command that is entered into a 
+ * command line. Every command has a unique identifier, a reference
+ * to the command line it was entered into, and an Editor and FeatureBar
+ * it can manipulate.</p>
+ * 
+ * 
+ * <p>All Command objects must implement three methods: {@code event(...)}, 
+ * {@code getSuccessMessage(..)}, and {@code getFailMessage(...)}.</p>
+ * 
  * @author Stephen Czekalski
  *
  */
@@ -23,36 +27,71 @@ public abstract class Command
 	/**The command's identifier.*/
 	protected final String identifier;
 	
-	/**A reference to the command line where the command was passed.*/
+	/**The Command line where the command was entered.*/
 	protected final CommandLine commandLine;
 	
-	/**A reference to the editor that the command can manipulate.*/
+	/**The Editor that the command can manipulate.*/
 	protected final Editor editor;
+	
+	/**The FeatureBar the command can manipulate.*/
+	protected final FeatureBar featurebar;
 
+	/**
+	 * Creates a new Command Object.
+	 * @param identifier The commands identifier.
+	 * @param commandLine The CommandLine the command was entered into.
+	 * @param editor The Editor that the command can manipulate.
+	 * @param featureBar The FeatureBar that the command can manipulate.
+	 */
 	public Command(String identifier, CommandLine commandLine, Editor editor, FeatureBar featureBar)
 	{
+		this.identifier = identifier;
 		this.commandLine = commandLine;
 		this.editor = editor;
-		this.identifier = identifier;
+		this.featurebar = featureBar;
+		
 	}
 
+	/**
+	 * 
+	 * @param stage The primary stage.
+	 * @param scene The current scene.
+	 * @param tokens The contents of the CommandLine.
+	 * @return True if the command was successful. Otherwise false.
+	 */
 	abstract public boolean event(Stage stage, Scene scene, ArrayList<String> tokens);
+	
+	/**
+	 * Returns the message the command displays when successful.
+	 * Return null if no message is desired.
+	 * @param tokens The contents of the CommandLine.
+	 * @return
+	 */
 	abstract public String getSuccessMessage(ArrayList<String> tokens);
+	
+	/**
+	 * Returns the message the command displays when unsuccessful.
+	 * Return null if no message is desired.
+	 * @param tokens The contents of the CommandLine.
+	 * @return
+	 */
 	abstract public String getFailMessage(ArrayList<String> tokens);
 	
-	public Editor getEditor()
+	/** @return The Command's identifier (its name). */
+	public String getIdentifier()
 	{
-		return editor;
+		return identifier;
 	}
 	
+	/** @return The CommandLine the Command was entered into. */
 	public CommandLine getCommandLine()
 	{
 		return commandLine;
 	}
 	
-	public String getIdentifier()
+	/** @return The Editor the Command can manipulate. */
+	public Editor getEditor()
 	{
-		return identifier;
+		return editor;
 	}
-
 }
