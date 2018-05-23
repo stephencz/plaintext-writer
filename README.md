@@ -17,9 +17,14 @@ To keep things clean and simple plaintext-writer uses a command line in favor of
 | `saveas <dest>` | Saves the open file at the passed in destination | `saveas "/home/stephen/example.txt"` |
 | `open <dest>` | Opens the file at the passed in destination | `open "/home/stephen/example.txt"` |
 | `theme <name>` | Changes the theme. | `theme dark` |
-| `hide <target>`| Hides the target UI element | `hide command` or `hide all`|
+| `hide <target>`| Hides the target UI element | `hide feature` or `hide all`|
+| `show <target>` | Shows the target UI element | `show feature` or `show all`|
+| `update <target>`|Updates the target UI element| `update count` or `update all`|
+| `top` | Jumps to the top of the file | `top`|
+| `bottom`| Jumps to the bottom of the file|`bottom|
 | `set_width <width>` | Sets the view width of the editor | `set_width 1200`|
 | `set_fontsize <size>` | Sets the font size of the editor | `set_fontsize 24`|
+
 
 ### Screenshots
 ![Light theme](/screenshots/light.png?raw=true)
