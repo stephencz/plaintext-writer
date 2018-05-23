@@ -8,14 +8,38 @@ import com.pte.featurebar.FeatureBar;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * The CommandHide class represents a command that can hide
+ * various parts of the GUI.
+ * 
+ * @command {@code hide <target>}
+ * @argument {@code <target>} The part of the GUI to hide.
+ * 
+ * @example <strong>hide all</strong> - hides the command bar and the feature bar.
+ * @example <strong>hide command</strong> - hides the command bar.
+ * @example <strong>hide feature</strong> - hides the feature bar.
+ * @example <strong>hide count</strong> - hides the word count feature.
+ * 
+ * @shortcut Ctrl + Shift + H - Hides or shows all.
+ * @shortcut Ctrl + Shift + G - Hides or shows the command line.
+ * @shortcut Ctrl + Shift + F - Hides or shows the feature bar.
+ * 
+ * @author Stephen Czekalski
+ *
+ */
 public class CommandHide extends Command
 {
 
+	/**
+	 * Creates a new CommandHide object.
+	 * @param commandLine The CommandLine that issued the command.
+	 * @param editor The Editor that the command can manipulate.
+	 * @param featureBar The FeatureBar that the command can manipulate.
+	 */
 	public CommandHide(CommandLine commandLine, Editor editor, FeatureBar featureBar)
 	{
 		super("hide", commandLine, editor, featureBar);
 	}
-
 
 	@Override
 	public boolean event(Stage stage, Scene scene, ArrayList<String> tokens)
@@ -57,15 +81,13 @@ public class CommandHide extends Command
 	@Override
 	public String getSuccessMessage(ArrayList<String> tokens)
 	{
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public String getFailMessage(ArrayList<String> tokens)
 	{
-		// TODO Auto-generated method stub
-		return null;
+		return "Unknown GUI Element: " + tokens.get(1);
 	}
 
 }

@@ -8,14 +8,30 @@ import com.pte.featurebar.FeatureBar;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * The CommandFullscreen class represents a command that can
+ * make the window enter or exit fullscreen mode. 
+ * 
+ * @command {@code fullscreen}
+ * @example <strong>fullscreen</strong>
+ * @shortcut F11
+ * 
+ * @author Stephen Czekalski
+ *
+ */
 public class CommandFullscreen extends Command
 {
 
+	/**
+	 * Creates a new CommandFullscreen Object.
+	 * @param commandLine The CommandLine that issued the command.
+	 * @param editor The Editor that the command can manipulate.
+	 * @param featureBar The FeatureBar that the command can manipulate.
+	 */
 	public CommandFullscreen(CommandLine commandLine, Editor editor, FeatureBar featureBar)
 	{
 		super("fullscreen", commandLine, editor, featureBar);
 	}
-
 
 	@Override
 	public boolean event(Stage stage, Scene scene, ArrayList<String> tokens)

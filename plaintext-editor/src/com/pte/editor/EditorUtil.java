@@ -123,7 +123,6 @@ public final class EditorUtil
 			}
 		}
 		
-		System.out.println("DID FILE OPEN: " + success);
 		return success;
 	}
 	

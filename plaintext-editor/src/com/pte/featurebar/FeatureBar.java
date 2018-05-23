@@ -48,6 +48,9 @@ public class FeatureBar extends HBox
 	public void registerEvents(Stage stage, Scene scene)
 	{
 		hideFeatureBarEvent(stage, scene);
+		hideAllEvent(stage, scene);
+		updateWordCountEvent(stage, scene);
+		updateAllEvent(stage, scene);
 	}
 	
 	private void hideFeatureBarEvent(Stage stage, Scene scene)
@@ -64,7 +67,12 @@ public class FeatureBar extends HBox
 					this.setVisible(true);
 				}
 			}
-			
+		});
+	}
+	
+	private void hideAllEvent(Stage stage, Scene scene)
+	{
+		scene.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
 			if(event.getCode() == KeyCode.H && event.isShortcutDown() && event.isShiftDown())
 			{	
 				if(this.isVisible())
@@ -76,9 +84,24 @@ public class FeatureBar extends HBox
 					this.setVisible(true);
 				}
 			}
-			
+		});
+	}
+	
+	private void updateAllEvent(Stage stage, Scene scene)
+	{
+		scene.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
 			if(event.getCode() == KeyCode.U && event.isShortcutDown() && event.isShiftDown())
 			{	
+				FeatureUtil.updateWords(this, editor);
+			}
+		});
+	}
+	
+	private void updateWordCountEvent(Stage stage, Scene scene)
+	{
+		scene.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
+			if(event.getCode() == KeyCode.SPACE)
+			{
 				FeatureUtil.updateWords(this, editor);
 			}
 		});
@@ -95,7 +118,7 @@ public class FeatureBar extends HBox
 		this.setSpacing(6);
 		this.setPadding(new Insets(5, 10, 5, 10));
 		//HBox.setHgrow(commandLine, Priority.ALWAYS);
-		this.setAlignment(Pos.CENTER_LEFT);
+		this.setAlignment(Pos.CENTER);
 		this.getStyleClass().add("feature-bar");
 		this.wordCount.getStyleClass().add("feature-bar-label");
 

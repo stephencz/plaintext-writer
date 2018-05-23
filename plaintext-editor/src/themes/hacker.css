@@ -96,10 +96,10 @@ EDITOR_WIDTH=800
 	-fx-background-color: #000;
 	-fx-text-fill: #00FF00;
 	
-	-fx-border-style: none solid none none;
-    -fx-border-width: 0 1 0 0;
+	-fx-border-style: none none none none;
+    -fx-border-width: 0 0 0 0;
     -fx-border-color: #00FF00;
 	
-	-fx-padding: 5px 10px 5px 5px;
+	-fx-padding: 10px 10px 10px 10px;
 	
 }

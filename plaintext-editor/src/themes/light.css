@@ -66,9 +66,10 @@ EDITOR_WIDTH=800
 
 .command-line-box
 {
+    -fx-background-color: #f3f3f3;
 	-fx-border-style: none none solid none;
     -fx-border-width: 0 0 1 0;
-    -fx-border-color: #000;
+    -fx-border-color: #9a9a9a;
 }
 
 .command-label
@@ -78,7 +79,30 @@ EDITOR_WIDTH=800
 
 .command-input
 {
-    -fx-background-color: #F9F9F9;
+    -fx-background-color: #f3f3f3;
     -fx-text-fill: #000;
 }
+
+.feature-bar
+{
+	-fx-background-color: #f3f3f3;
+	-fx-border-style: solid none none none;
+    -fx-border-width: 1 0 0 0;
+    -fx-border-color: #9a9a9a;
+    -fx-padding: 0px 0px 0px 0px;
+}
+
+.feature-bar-label
+{
+	-fx-background-color: #f3f3f3;
+	-fx-text-fill: #000;
+	
+	-fx-border-style: none none none none;
+    -fx-border-width: 0 0 0 0;
+    -fx-border-color: #f9f9f9;
+	
+	-fx-padding: 10px 10px 10px 10px;
+	
+}
+
 

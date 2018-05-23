@@ -28,6 +28,7 @@ public class CommandLine extends HBox
 	/**A reference to the primary editor.*/
 	private Editor editor;
 
+	/**A reference to the primary feature bar.*/
 	private FeatureBar featureBar;
 	
 	/**The command line's label.*/
@@ -36,9 +37,13 @@ public class CommandLine extends HBox
 	/**A text field representing the command line itself.*/
 	private TextField commandLine;
 	
+	/**Parses commands passed to the command line.*/
 	private CommandParser parser;
+	
+	/**Manages all commands available to this command line.*/
 	private CommandManager manager;
 	
+	//Commands
 	private CommandSave saveCommand;
 	private CommandSaveAs saveAsCommand;
 	private CommandOpenFile openFileCommand;
@@ -55,7 +60,7 @@ public class CommandLine extends HBox
 	private CommandTop topCommand;
 	
 	private CommandBottom bottomCommand;
-	private CommandJump jumpCommand;
+	//private CommandJump jumpCommand;
 	
 	/**
 	 * Creates a new CommandLine object.
@@ -66,9 +71,10 @@ public class CommandLine extends HBox
 		this.editor = editor;
 		this.featureBar = featureBar;
 		
-		commandLabel = new Label("Enter Command:");
+		commandLabel = new Label("Enter Command: ");
 		commandLine = new TextField();
 		
+		//Create Command Objects.
 		parser = new CommandParser(this);
 		manager = new CommandManager(this);
 		
@@ -88,8 +94,9 @@ public class CommandLine extends HBox
 		topCommand = new CommandTop(this, editor, featureBar);
 		
 		bottomCommand = new CommandBottom(this, editor, featureBar);
-		jumpCommand = new CommandJump(this, editor, featureBar);
+		//jumpCommand = new CommandJump(this, editor, featureBar);
 		
+		//Add Command objects to CommandManager.
 		manager.getCommands().add(saveCommand);
 		manager.getCommands().add(saveAsCommand);
 		manager.getCommands().add(openFileCommand);
@@ -108,31 +115,37 @@ public class CommandLine extends HBox
 		manager.getCommands().add(bottomCommand);
 		//manager.getCommands().add(jumpCommand); MUST BE FIXED
 		
+		//Initialize CommandLine
 		initCommandLine();
 		initCommandLabel();
 		initCommandInput();
 	}
 	
+	/**@return The primary Editor object.*/
 	public Editor getEditor()
 	{
 		return this.editor;
 	}
 	
+	/**@return The primary FeatureBar object.*/
 	public FeatureBar getFeatureBar()
 	{
 		return this.featureBar;
 	}
 	
+	/**@return The CommandLine's Label object.*/
 	public Label getCommandLabel()
 	{
 		return this.commandLabel;
 	}
 	
+	/**@return The CommandLine's TextField object.*/
 	public TextField getCommandLine()
 	{
 		return this.commandLine;
 	}
 	
+	/**@return The CommandLine's CommandManager object.*/
 	public CommandManager getCommandManager()
 	{
 		return this.manager;
@@ -146,6 +159,7 @@ public class CommandLine extends HBox
 	public void registerEvents(Stage stage, Scene scene)
 	{
 		hideCommandLineEvent(stage, scene);
+		hideAllEvent(stage, scene);
 		parseCommandEvent(stage, scene);
 	}
 	
@@ -171,7 +185,18 @@ public class CommandLine extends HBox
 					this.commandLine.selectAll();
 				}
 			}
-			
+		});
+	}
+	
+	/**
+	 * An event which is also implemented in FeatureBar class to
+	 * make a 'hide all' shortcut.
+	 * @param stage The primary stage.
+	 * @param scene The current scene.
+	 */
+	private void hideAllEvent(Stage stage, Scene scene)
+	{
+		scene.addEventFilter(KeyEvent.KEY_PRESSED,  event -> {
 			if(event.getCode() == KeyCode.H && event.isShortcutDown() && event.isShiftDown())
 			{	
 				if(this.isVisible())
@@ -188,6 +213,12 @@ public class CommandLine extends HBox
 		});
 	}
 	
+	/**
+	 * An event which parses the command line when enter is
+	 * pressed and resolves and executes the correct command.
+	 * @param stage The primary stage.
+	 * @param scene The current scene.
+	 */
 	private void parseCommandEvent(Stage stage, Scene scene)
 	{
 		this.commandLine.setOnKeyReleased(event -> {

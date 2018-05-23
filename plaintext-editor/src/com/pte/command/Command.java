@@ -89,12 +89,13 @@ public abstract class Command
 		return commandLine;
 	}
 	
-	/** @return The Editor the Command can manipulate. */
+	/** @return The Editor the Command Line can manipulate. */
 	public Editor getEditor()
 	{
 		return editor;
 	}
 	
+	/** @return The FeatureBar the Command Line can manipulate. */
 	public FeatureBar getFeatureBar()
 	{
 		return featureBar;

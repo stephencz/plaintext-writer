@@ -9,8 +9,28 @@ import com.pte.util.CSSUtil;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * The CommandChangeTheme class represents a command that
+ * changes the editor's theme.
+ * 
+ * @command {@code theme <name>}
+ * @argument {@code<name>} The name of the theme to change to.
+ * @example <strong>theme light</strong>
+ * @example <strong>theme dark</strong>
+ * @example <strong>theme hacker</strong>
+ * @example <strong>theme relaxed</strong>
+ * 
+ * @author Stephen Czekalski
+ *
+ */
 public class CommandChangeTheme extends Command
 {
+	/**
+	 * Creates a new CommandChangeTheme object.
+	 * @param commandLine The CommandLine that issued the command.
+	 * @param editor The Editor that the command can manipulate.
+	 * @param featureBar The FeatureBar that the command can manipulate. 
+	 */
 	public CommandChangeTheme(CommandLine commandLine, Editor editor, FeatureBar featureBar)
 	{
 		super("theme", commandLine, editor, featureBar);
@@ -25,14 +45,14 @@ public class CommandChangeTheme extends Command
 		
 		try
 		{
-			this.editor.setTheme(tokens.get(1));
 			CSSUtil.loadTheme(scene, this.editor, tokens.get(1));
+			this.editor.setTheme(tokens.get(1));
 			success = true;
 		}
 		catch(Exception e)
 		{
-			this.editor.setTheme(temp);
 			CSSUtil.loadTheme(scene, this.editor, temp);
+			this.editor.setTheme(temp);
 			success = false;
 		}
 		

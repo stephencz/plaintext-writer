@@ -9,9 +9,31 @@ import com.pte.featurebar.FeatureBar;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * The CommandOpenFile class represents a command
+ * that opens the passed in file.
+ * 
+ * @command {@code open <path>}
+ * @argument {@code <path>} The path to the file.
+ * @example <strong>open "/home/stephen/Desktop/test.txt"</strong>
+ * 
+ * @note None of the file manipulation commands warn the
+ * user before executing. This means there is no check to
+ * make sure you want to save the currently open file. 
+ * This will be changed in a future update.
+ * 
+ * @author Stephen Czekalski
+ *
+ */
 public class CommandOpenFile extends Command
 {
 
+	/**
+	 * Creates a new CommandOpenFile object. 
+	 * @param commandLine The CommandLine that issued the command.
+	 * @param editor The Editor that the command can manipulate.
+	 * @param featureBar The FeatureBar that the command can manipulate.
+	 */
 	public CommandOpenFile(CommandLine commandLine, Editor editor, FeatureBar featureBar)
 	{
 		super("open", commandLine, editor, featureBar);
@@ -20,54 +42,19 @@ public class CommandOpenFile extends Command
 	@Override
 	public boolean event(Stage stage, Scene scene, ArrayList<String> tokens)
 	{
-		/*
-		boolean success = false;
-		
-		if(this.editor.getText().trim().equals(""))
-		{
-			this.editor.setFile(new File(tokens.get(1)));
-			if(EditorUtil.open(stage, scene, this.editor))
-			{
-				success = true;
-			}
-			else
-			{
-				success = false;
-			}
-		}
-		else
-		{
-			if(this.editor.getFile() == null)
-			{
-				success = EditorUtil.saveAs(stage, scene, this.editor);
-			}
-			else
-			{
-				success = EditorUtil.save(stage, scene, this.editor);
-			}
-			
-			EditorUtil.open(stage, scene, editor);
-		}*/
-		
 		this.editor.setFile(new File(tokens.get(1)));
 		return EditorUtil.open(stage, scene, editor);
 	}
-
-	
 	
 	@Override
 	public String getSuccessMessage(ArrayList<String> tokens)
 	{
-		// TODO Auto-generated method stub
-		return "File open!";
+		return "Opened file: " + tokens.get(1);
 	}
 
 	@Override
 	public String getFailMessage(ArrayList<String> tokens)
 	{
-		return "Failed to open file!";
+		return "Failed to open file: " + tokens.get(1);
 	}
-	
-	
-
 }

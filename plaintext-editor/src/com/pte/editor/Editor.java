@@ -1,6 +1,8 @@
 package com.pte.editor;
 
 import java.io.File;
+
+import com.pte.featurebar.FeatureUtil;
 import com.pte.util.ConfigUtil;
 
 import javafx.scene.Scene;

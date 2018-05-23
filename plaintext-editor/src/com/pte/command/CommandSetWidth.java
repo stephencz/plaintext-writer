@@ -8,9 +8,26 @@ import com.pte.featurebar.FeatureBar;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * The CommandSetWidth class represents a command that
+ * lets the user set the width of the editor's view.
+ * 
+ * @command {@code set_width <size>}
+ * @argument {@code <size>} The size of the editor view in pixels.
+ * @example <strong>set_width 1378</strong>
+ * 
+ * @author Stephen Czekalski
+ *
+ */
 public class CommandSetWidth extends Command
 {
 
+	/**
+	 * Creates a new CommandSetWidth object.
+	 * @param commandLine The CommandLine that issued the command. 
+	 * @param editor The editor that the command can manipulate. 
+	 * @param featureBar The feature bar that the command can manipulate.
+	 */
 	public CommandSetWidth(CommandLine commandLine, Editor editor, FeatureBar featureBar)
 	{
 		super("set_width", commandLine, editor, featureBar);
@@ -44,7 +61,7 @@ public class CommandSetWidth extends Command
 	@Override
 	public String getFailMessage(ArrayList<String> tokens)
 	{
-		return "Failed to change width! Try set_width <width>.";
+		return null;
 	}
 
 	
