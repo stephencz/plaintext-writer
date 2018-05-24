@@ -44,14 +44,14 @@ EDITOR_WIDTH=800
 .editor .content 
 {
     -fx-background-color: #EAEAE5;
-    -fx-highlight-fill: #00FF00;
+    -fx-highlight-fill: #787878;
     -fx-padding: 40px 20px 40px 20px;
     -fx-background-radius: 0 ;
 }
 
 .editor:focused 
 {
-    -fx-highlight-fill: #00FF00;
+    -fx-highlight-fill: #787878;
 }
 
 .editor:focused .content 

@@ -1,0 +1,93 @@
+FONT_SIZE=16
+EDITOR_WIDTH=800
+
+@font-face 
+{
+	-fx-font-family: monospace;
+}
+
+.border-pane
+{
+	-fx-background-color: #600404;
+}
+
+.stack-pane
+{
+	-fx-background-color: #600404;
+}
+
+.editor 
+{
+	-fx-font-family: monospace;
+	-fx-font-weight: normal;
+	-fx-text-fill: #F00;
+    -fx-background-insets: 0;
+    -fx-background-color: #600404;
+}
+
+.editor .content 
+{
+    -fx-background-color: #600404;
+    -fx-highlight-fill: #e03838;
+    -fx-padding: 40px 20px 40px 20px;
+    -fx-background-radius: 0 ;
+}
+
+.editor:focused 
+{
+    -fx-highlight-fill: #e03838;
+}
+
+.editor:focused .content 
+{
+    -fx-background-color: #600404;
+}
+
+.editor .scroll-bar:vertical:disabled 
+{
+	-fx-opacity: 0;
+}
+
+.command-line-box
+{
+	-fx-background-color: #3a0202;
+	-fx-border-style: none none solid none;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: #5b0202;
+    
+    -fx-padding: 10px 10px 10px 10px;
+    
+}
+
+.command-label
+{
+	-fx-text-fill: #F00;
+}
+
+.command-input
+{
+    -fx-background-color: #5b0202;
+    -fx-text-fill: #F00;
+}
+
+.feature-bar
+{
+	-fx-background-color: #3a0202;
+	-fx-border-style: solid none none none;
+    -fx-border-width: 1 0 0 0;
+    -fx-border-color: #5b0202;
+    -fx-padding: 0px 0px 0px 0px;
+}
+
+.feature-bar-label
+{
+	-fx-background-color: #3a0202;
+	-fx-text-fill: #F00;
+	
+	-fx-border-style: none none none none;
+    -fx-border-width: 0 0 0 0;
+    -fx-border-color: #5b0202;
+	
+	-fx-padding: 10px 10px 10px 10px;
+}
+
