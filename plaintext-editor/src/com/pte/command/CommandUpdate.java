@@ -16,6 +16,7 @@ import javafx.stage.Stage;
  * @command {@code update <target>}
  * @argument <@code <target> The part of the GUI to update.
  * 
+ * @example <strong>update</strong> 
  * @example <strong>update all</strong>
  * @example <strong>update feature</strong>
  * @example <strong>update count</strong>
@@ -42,7 +43,7 @@ public class CommandUpdate extends Command
 	{
 		boolean success = false;
 		
-		if(tokens.size() > 1)
+		if(tokens.size() >= 2)
 		{
 			switch(tokens.get(1).trim().toUpperCase())
 			{	
@@ -65,9 +66,10 @@ public class CommandUpdate extends Command
 				break;
 			}
 		}
-		else if(tokens.size() <= 1)
+		else
 		{
 			FeatureUtil.updateWords(featureBar, editor);
+			success = true;
 		}
 		
 		return success;
@@ -76,7 +78,7 @@ public class CommandUpdate extends Command
 	@Override
 	public String getSuccessMessage(ArrayList<String> tokens)
 	{
-		return "Update successful: " + tokens.get(1);
+		return null;
 	}
 
 	@Override

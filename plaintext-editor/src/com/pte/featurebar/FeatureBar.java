@@ -47,27 +47,8 @@ public class FeatureBar extends HBox
 	
 	public void registerEvents(Stage stage, Scene scene)
 	{
-		hideFeatureBarEvent(stage, scene);
 		hideAllEvent(stage, scene);
-		updateWordCountEvent(stage, scene);
 		updateAllEvent(stage, scene);
-	}
-	
-	private void hideFeatureBarEvent(Stage stage, Scene scene)
-	{
-		scene.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
-			if(event.getCode() == KeyCode.F && event.isShortcutDown() && event.isShiftDown())
-			{	
-				if(this.isVisible())
-				{
-					this.setVisible(false);
-				}
-				else
-				{
-					this.setVisible(true);
-				}
-			}
-		});
 	}
 	
 	private void hideAllEvent(Stage stage, Scene scene)
@@ -92,16 +73,6 @@ public class FeatureBar extends HBox
 		scene.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
 			if(event.getCode() == KeyCode.U && event.isShortcutDown() && event.isShiftDown())
 			{	
-				FeatureUtil.updateWords(this, editor);
-			}
-		});
-	}
-	
-	private void updateWordCountEvent(Stage stage, Scene scene)
-	{
-		scene.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
-			if(event.getCode() == KeyCode.SPACE)
-			{
 				FeatureUtil.updateWords(this, editor);
 			}
 		});

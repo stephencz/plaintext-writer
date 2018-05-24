@@ -15,14 +15,13 @@ import javafx.stage.Stage;
  * @command {@code show <target>}
  * @argument {@code <target>} The part of the GUI to show.
  * 
- * @example <strong>show all</strong> - shows the command bar and the feature bar.
- * @example <strong>show command</strong> - shows the command bar.
+ * @example <strong>show</strong> - shows the feature bar and command line.
+ * @example <strong>show all</strong> - shows everything
+ * @example <strong>show command</strong> - shows the command line.
  * @example <strong>show feature</strong> - shows the feature bar.
  * @example <strong>show count</strong> - shows the word count feature.
  * 
  * @shortcut Ctrl + Shift + H - Shows or hides all.
- * @shortcut Ctrl + Shift + G - Shows or hides the command line.
- * @shortcut Ctrl + Shift + F - Shows or hides the feature bar.
  * 
  * @author Stephen Czekalski
  *
@@ -46,32 +45,41 @@ public class CommandShow extends Command
 	{
 		boolean success = false;
 		
-		switch(tokens.get(1).trim().toUpperCase())
+		if(tokens.size() >= 2)
 		{
-		case "COMMAND": 
+			switch(tokens.get(1).trim().toUpperCase())
+			{
+			case "COMMAND": 
+				this.commandLine.setVisible(true);
+				success = true;
+				break;
+				
+			case "FEATURE":
+				this.featureBar.setVisible(true);
+				success = true;
+				break;
+				
+			case "WORDS":
+				this.featureBar.getManager().getFeature("COUNT").setVisible(true);
+				success = true;
+				break;
+				
+			case "ALL":
+				this.commandLine.setVisible(true);
+				this.featureBar.setVisible(true);
+				
+				success = true;
+				break;
+				
+			default: 
+				break;
+			}
+		}
+		else
+		{
 			this.commandLine.setVisible(true);
-			success = true;
-			break;
-			
-		case "FEATURE":
 			this.featureBar.setVisible(true);
 			success = true;
-			break;
-			
-		case "WORDS":
-			this.featureBar.getManager().getFeature("COUNT").setVisible(true);
-			success = true;
-			break;
-			
-		case "ALL":
-			this.commandLine.setVisible(true);
-			this.featureBar.setVisible(true);
-			
-			success = true;
-			break;
-			
-		default: 
-			break;
 		}
 		
 		return success;

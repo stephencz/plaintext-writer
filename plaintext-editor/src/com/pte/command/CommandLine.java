@@ -158,34 +158,8 @@ public class CommandLine extends HBox
 	 */
 	public void registerEvents(Stage stage, Scene scene)
 	{
-		hideCommandLineEvent(stage, scene);
 		hideAllEvent(stage, scene);
 		parseCommandEvent(stage, scene);
-	}
-	
-	/**
-	 * An event which lets the user show and hide the command line.
-	 * @KeyCode Ctrl + Shift + H - Hides or shows the command line.
-	 * @param stage The primary stage.
-	 * @param scene The current scene.
-	 */
-	private void hideCommandLineEvent(Stage stage, Scene scene)
-	{
-		scene.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
-			if(event.getCode() == KeyCode.G && event.isShortcutDown() && event.isShiftDown())
-			{	
-				if(this.isVisible())
-				{
-					this.setVisible(false);
-				}
-				else
-				{
-					this.setVisible(true);
-					this.commandLine.requestFocus();
-					this.commandLine.selectAll();
-				}
-			}
-		});
 	}
 	
 	/**
