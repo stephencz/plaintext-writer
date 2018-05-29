@@ -20,6 +20,7 @@ import javafx.stage.Stage;
  * @example <strong>update all</strong>
  * @example <strong>update feature</strong>
  * @example <strong>update count</strong>
+ * @example <strong>update theme</strong>
  * 
  * @author Stephen Czekalski
  *
@@ -49,6 +50,12 @@ public class CommandUpdate extends Command
 			{	
 			case "FEATURE":
 				FeatureUtil.updateWords(featureBar, editor);
+				FeatureUtil.updateThemeDisplay(featureBar, editor);
+				success = true;
+				break;
+				
+			case "THEME":
+				FeatureUtil.updateThemeDisplay(featureBar, editor);
 				success = true;
 				break;
 				
@@ -59,6 +66,7 @@ public class CommandUpdate extends Command
 				
 			case "ALL":
 				FeatureUtil.updateWords(featureBar, editor);
+				FeatureUtil.updateThemeDisplay(featureBar, editor);
 				success = true;
 				break;
 				
@@ -69,6 +77,7 @@ public class CommandUpdate extends Command
 		else
 		{
 			FeatureUtil.updateWords(featureBar, editor);
+			FeatureUtil.updateThemeDisplay(featureBar, editor);
 			success = true;
 		}
 		

@@ -64,6 +64,11 @@ public class CommandShow extends Command
 				success = true;
 				break;
 				
+			case "THEME":
+				this.featureBar.getManager().getFeature("THEME").setVisible(true);
+				success = true;
+				break;
+				
 			case "ALL":
 				this.commandLine.setVisible(true);
 				this.featureBar.setVisible(true);

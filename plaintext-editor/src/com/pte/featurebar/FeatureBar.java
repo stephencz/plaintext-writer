@@ -19,6 +19,8 @@ public class FeatureBar extends HBox
 	
 	private FeatureManager featureManager;
 	
+	private Feature themeDisplay;
+	
 	private Feature wordCount;
 	
 	public FeatureBar(Editor editor)
@@ -27,8 +29,10 @@ public class FeatureBar extends HBox
 		
 		featureManager = new FeatureManager(this);
 		
-		wordCount = new Feature("count", "Words: 0");
+		themeDisplay = new Feature("THEME", "Theme: " + editor.getTheme());
+		wordCount = new Feature("COUNT", "Words: 0");
 		
+		featureManager.getFeatures().add(themeDisplay);
 		featureManager.getFeatures().add(wordCount);
 		
 		this.initLabels();
@@ -80,8 +84,8 @@ public class FeatureBar extends HBox
 	
 	private void initLabels()
 	{
+		this.getChildren().add(themeDisplay);	
 		this.getChildren().add(wordCount);
-
 	}
 	
 	private void initFeatureBar()
@@ -89,8 +93,9 @@ public class FeatureBar extends HBox
 		this.setSpacing(6);
 		this.setPadding(new Insets(5, 10, 5, 10));
 		//HBox.setHgrow(commandLine, Priority.ALWAYS);
-		this.setAlignment(Pos.CENTER);
+		this.setAlignment(Pos.CENTER_LEFT);
 		this.getStyleClass().add("feature-bar");
+		this.themeDisplay.getStyleClass().add("feature-bar-label");
 		this.wordCount.getStyleClass().add("feature-bar-label");
 
 	}

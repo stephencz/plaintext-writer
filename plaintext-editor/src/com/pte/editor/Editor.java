@@ -15,16 +15,17 @@ import javafx.stage.Stage;
 public class Editor extends TextArea
 {
 	
-	/**The file currently open in the editor.*/
-	private File file;
-	
 	/**Keeps track of the font size in the editor.*/
 	private int fontSize;
 	
 	/**The width of the editor.*/
 	private int editorWidth;
 	
+	/**The editors current theme*/
 	private String theme;
+	
+	/**The file currently open in the editor.*/
+	private File file;
 
 	/**Creates a new Editor.*/
 	public Editor(int fontSize, int editorWidth)

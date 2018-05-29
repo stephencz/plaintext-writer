@@ -44,4 +44,10 @@ public class FeatureUtil
 		feature.setText("Words: " + wordCount);	
 	}
 	
+	public static void updateThemeDisplay(FeatureBar featureBar, Editor editor)
+	{
+		Feature feature = featureBar.getManager().getFeature("THEME");
+		feature.setText("Theme: " + editor.getTheme());
+	}
+	
 }

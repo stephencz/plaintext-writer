@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.pte.editor.Editor;
 import com.pte.featurebar.FeatureBar;
+import com.pte.featurebar.FeatureUtil;
 import com.pte.util.CSSUtil;
 
 import javafx.scene.Scene;
@@ -45,14 +46,16 @@ public class CommandChangeTheme extends Command
 		
 		try
 		{
-			CSSUtil.loadTheme(scene, this.editor, tokens.get(1));
 			this.editor.setTheme(tokens.get(1));
+			CSSUtil.loadTheme(scene, this.editor, tokens.get(1));
+			FeatureUtil.updateThemeDisplay(featureBar, editor);
 			success = true;
 		}
 		catch(Exception e)
 		{
-			CSSUtil.loadTheme(scene, this.editor, temp);
-			this.editor.setTheme(temp);
+			this.editor.setTheme(tokens.get(1));
+			CSSUtil.loadTheme(scene, this.editor, tokens.get(1));
+			FeatureUtil.updateThemeDisplay(featureBar, editor);
 			success = false;
 		}
 		
