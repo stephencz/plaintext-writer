@@ -1,0 +1,105 @@
+/* ============== STYLE PROPERTIES ==================== */
+/* The below properties specific setting for this       */
+/* themes that either CAN'T be set with CSS or HAVE     */
+/* to be handled with real code. The order of these     */
+/*                                                      */
+/*                                                      */
+/* Property Documentation:                              */
+/*   FONT_SIZE - The size of the font (Ex: 16)          */
+/*   EDITOR_WIDTH - The width of the editor (Ex: 800)   */
+/* ==================================================== */
+FONT_SIZE=16
+EDITOR_WIDTH=800
+
+/* ============== STYLE PROPERTIES ====================== */
+/* Here are the actual CSS styles. For custom fonts to    */
+/* work they must be installed system wide. This means    */
+/* that fonts should be bundled with themes when sharing  */
+/* them so other users can install the fonts.             */
+/* ====================================================== */
+@font-face 
+{
+	-fx-font-family: monospace;
+}
+
+.border-pane
+{
+	-fx-background-color: #0c0c3d;
+}
+
+.stack-pane
+{
+	-fx-background-color: #0c0c3d;
+}
+
+.editor 
+{
+	-fx-font-family: monospace;
+	-fx-font-weight: normal;
+	-fx-text-fill: #3498db;
+    -fx-background-insets: 0;
+    -fx-background-color: #0c0c3d;
+}
+
+.editor .content 
+{
+    -fx-background-color: #0c0c3d;
+    -fx-highlight-fill: #00F;
+    -fx-padding: 20px 20px 20px 20px;
+    -fx-background-radius: 0 ;
+}
+
+.editor:focused 
+{
+    -fx-highlight-fill: #00F;
+}
+
+.editor:focused .content 
+{
+    -fx-background-color: #0c0c3d;
+}
+
+.editor .scroll-bar:vertical:disabled 
+{
+	-fx-opacity: 0;
+}
+
+.command-line-box
+{
+	-fx-border-style: none none solid none;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: #3498db;
+}
+
+.command-label
+{
+	-fx-text-fill: #3498db;
+}
+
+.command-input
+{
+    -fx-background-color: #0c0c3d;
+    -fx-text-fill: #3498db;
+}
+
+.feature-bar
+{
+	-fx-background-color: #0c0c3d;
+	-fx-border-style: solid none none none;
+    -fx-border-width: 1 0 0 0;
+    -fx-border-color: #3498db;
+    -fx-padding: 0px 0px 0px 0px;
+}
+
+.feature-bar-label
+{
+	-fx-background-color: #0c0c3d;
+	-fx-text-fill: #3498db;
+	
+	-fx-border-style: none none none none;
+    -fx-border-width: 0 0 0 0;
+    -fx-border-color: #3498db;
+	
+	-fx-padding: 10px 10px 10px 10px;
+	
+}
