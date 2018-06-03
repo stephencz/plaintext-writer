@@ -54,13 +54,10 @@ public class CommandLine extends HBox
 	private CommandChangeTheme changeThemeCommand;
 	private CommandFullscreen fullscreenCommand;
 	
-	private CommandHide hideCommand;
 	private CommandUpdate updateCommand;
 	private CommandTop topCommand;
-	private CommandJump jumpCommand;
-
-	
 	private CommandBottom bottomCommand;
+	private CommandJump jumpCommand;
 	
 	/**
 	 * Creates a new CommandLine object.
@@ -88,12 +85,11 @@ public class CommandLine extends HBox
 		changeThemeCommand = new CommandChangeTheme(this, editor, featureBar);
 		fullscreenCommand = new CommandFullscreen(this, editor, featureBar);
 		
-		hideCommand = new CommandHide(this, editor, featureBar);
 		updateCommand = new CommandUpdate(this, editor, featureBar);
 		topCommand = new CommandTop(this, editor, featureBar);
+		bottomCommand = new CommandBottom(this, editor, featureBar);
 		jumpCommand = new CommandJump(this, editor, featureBar);
 		
-		bottomCommand = new CommandBottom(this, editor, featureBar);
 		
 		//Add Command objects to CommandManager.
 		manager.getCommands().add(saveCommand);
@@ -106,12 +102,11 @@ public class CommandLine extends HBox
 		manager.getCommands().add(changeThemeCommand);
 		manager.getCommands().add(fullscreenCommand);
 		
-		manager.getCommands().add(hideCommand);
 		manager.getCommands().add(updateCommand);
 		manager.getCommands().add(topCommand);
+		manager.getCommands().add(bottomCommand);
 		manager.getCommands().add(jumpCommand);
 		
-		manager.getCommands().add(bottomCommand);
 		
 		//Initialize CommandLine
 		initCommandLine();
