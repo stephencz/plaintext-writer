@@ -41,6 +41,11 @@ public class CommandNewFile extends Command
 	@Override
 	public boolean event(Stage stage, Scene scene, ArrayList<String> tokens)
 	{
+		if(editor.getFile() != null)
+		{
+			
+		}
+		
 		return EditorUtil.newFile(stage, scene, editor);
 	}
 

@@ -42,8 +42,15 @@ public class CommandSaveAs extends Command
 
 	@Override
 	public boolean event(Stage stage, Scene scene, ArrayList<String> tokens)
-	{				
-		return EditorUtil.saveAs(stage, scene, editor, tokens.get(1));
+	{			
+		boolean success = false;
+		
+		if(tokens.size() == 2)
+		{
+			success = EditorUtil.saveAs(stage, scene, editor, tokens.get(1));
+		}
+		
+		return success;
 	}
 
 	@Override
@@ -55,7 +62,15 @@ public class CommandSaveAs extends Command
 	@Override
 	public String getFailMessage(ArrayList<String> tokens)
 	{
-		return "Invalid path: " + tokens.get(1);
+		if(tokens.size() == 2)
+		{
+			return "Invalid path: " + tokens.get(1);
+		}
+		else
+		{
+			return "Enter a path!";
+		}
+		
 	}
 
 }
