@@ -19,33 +19,7 @@ public class CommandJump extends Command
 	@Override
 	public boolean event(Stage stage, Scene scene, ArrayList<String> tokens)
 	{
-		boolean success = false;
-		
-		try
-		{
-			int paragraphNumber = Integer.parseInt(tokens.get(1));
-			int position = 0;
-			
-			for(int i = 0; i < paragraphNumber - 1; i++)
-			{
-				CharSequence paragraph = this.editor.getParagraphs().get(i);
-				if(!paragraph.toString().trim().equals(""))
-				{
-					position += paragraph.length() + 1;
-				}
-			}
-			
-			this.editor.requestFocus();
-			this.editor.positionCaret(position);
-				
-			success = true;
-		}
-		catch(Exception e)
-		{
-			success = false;
-		}
-				
-		return success;
+		return true;
 	}
 
 	@Override

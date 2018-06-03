@@ -43,53 +43,11 @@ public class CommandHide extends Command
 	@Override
 	public boolean event(Stage stage, Scene scene, ArrayList<String> tokens)
 	{
-		boolean success = false;
-			
-		if(tokens.size() >= 2)
-		{
-			switch(tokens.get(1).trim().toUpperCase())
-			{
-			case "COMMAND": 
-				this.editor.requestFocus();
-				this.commandLine.setVisible(false);
-				success = true;
-				break;
-				
-			case "FEATURE":
-				this.featureBar.setVisible(false);
-				success = true;
-				break;
-				
-			case "THEME":
-				this.featureBar.getManager().getFeature("THEME").setVisible(false);
-				success = true;
-				break;
-				
-			case "COUNT":
-				this.featureBar.getManager().getFeature("COUNT").setVisible(false);
-				success = true;
-				break;
-				
-			case "ALL":
-				this.editor.requestFocus();
-				this.commandLine.setVisible(false);
-				this.featureBar.setVisible(false);
-				success = true;
-				break;
-				
-			default: 
-				break;
-			}
-		}
-		else
-		{
-			this.editor.requestFocus();
-			this.commandLine.setVisible(false);
-			this.featureBar.setVisible(false);
-			success = true;
-		}
+		this.commandLine.setVisible(false);
+		this.featureBar.setVisible(false);
+		this.editor.requestFocus();
 		
-		return success;
+		return true;
 	}
 
 	@Override

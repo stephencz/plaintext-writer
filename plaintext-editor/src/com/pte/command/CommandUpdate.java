@@ -41,47 +41,11 @@ public class CommandUpdate extends Command
 
 	@Override
 	public boolean event(Stage stage, Scene scene, ArrayList<String> tokens)
-	{
-		boolean success = false;
-		
-		if(tokens.size() >= 2)
-		{
-			switch(tokens.get(1).trim().toUpperCase())
-			{	
-			case "FEATURE":
-				FeatureUtil.updateWords(featureBar, editor);
-				FeatureUtil.updateThemeDisplay(featureBar, editor);
-				success = true;
-				break;
-				
-			case "THEME":
-				FeatureUtil.updateThemeDisplay(featureBar, editor);
-				success = true;
-				break;
-				
-			case "COUNT":
-				FeatureUtil.updateWords(featureBar, editor);
-				success = true;
-				break;
-				
-			case "ALL":
-				FeatureUtil.updateWords(featureBar, editor);
-				FeatureUtil.updateThemeDisplay(featureBar, editor);
-				success = true;
-				break;
-				
-			default:
-				break;
-			}
-		}
-		else
-		{
-			FeatureUtil.updateWords(featureBar, editor);
-			FeatureUtil.updateThemeDisplay(featureBar, editor);
-			success = true;
-		}
-		
-		return success;
+	{		
+		FeatureUtil.updateWords(featureBar, editor);
+		FeatureUtil.updateThemeDisplay(featureBar, editor);
+
+		return true;
 	}
 
 	@Override
