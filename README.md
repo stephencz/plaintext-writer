@@ -1,9 +1,7 @@
 # plaintext-writer
 A plaintext editor for writers; designed to enforce simplicity. 
 
-**NOTE:** I am no longer working on this project. It *should* work, but if it becomes defunt in the future I will not be fixing it. My reason for deciding not to improve or refine this project is that I do not like JavaFX which this project uses heavily. It is a better use of my time to abandon this project and start over. I still have a personal need for this kind of software, a minimal plaintext editor, so I am starting a new projected called [Dynamo](https://github.com/stephencz/dynamo).
-
-
+**NOTE:** I am no longer working on this project. It *should* work, but if it breaks in the future I will not be fixing it.
 
 ## Philosophy
 The main design principle behind plaintext-writer is enforced simplicity. Plaintext-writer strips away the fancy additions of modern word-processors in favor a singular, distraction-free, writing experience. 
