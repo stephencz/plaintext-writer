@@ -1,7 +1,7 @@
 # plaintext-writer
 A plaintext editor for writers; designed to enforce simplicity. 
 
-**NOTE:** I am no longer working on this project. It *should* work, but if it breaks in the future I will not be fixing it.
+**NOTE:** I am no longer working on this project. It *should* work, but if it breaks in the future I most likely will not be fixing it as I no longer use it.
 
 ## Philosophy
 The main design principle behind plaintext-writer is enforced simplicity. Plaintext-writer strips away the fancy additions of modern word-processors in favor a singular, distraction-free, writing experience. 
